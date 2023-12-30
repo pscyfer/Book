@@ -16,7 +16,7 @@ namespace Book.Api.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
+        [HttpPost("register")]
         [AllowAnonymous]
         public async Task<IActionResult> RegisterAsync(RegisterModel registerModel)
         {

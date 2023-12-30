@@ -8,6 +8,7 @@ public static class DatabaseContextSeed
     public static async Task MigrateSeedAsync(IServiceProvider services)
     {
         var context = services.GetRequiredService<DataContext>();
+
         var userManager = services.GetRequiredService<UserManager<User>>();
 
         await SeedDatabaseAsync(context, userManager);
@@ -19,7 +20,7 @@ public static class DatabaseContextSeed
         {
             var user = new User { UserName = "Owner", Email = "admin@admin.com", EmailConfirmed = true };
 
-            await userManager.CreateAsync(user, "renwo");
+            await userManager.CreateAsync(user, "owner123");
         }
 
         await context.SaveChangesAsync();

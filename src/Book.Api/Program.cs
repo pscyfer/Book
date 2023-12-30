@@ -24,6 +24,10 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+using IServiceScope scope = app.Services.CreateScope();
+
+await DatabaseContextSeed.MigrateSeedAsync(scope.ServiceProvider);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
